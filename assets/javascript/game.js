@@ -16,6 +16,7 @@ document.onkeyup = function(event) {
     {
         wins = wins + 1;
         guesses = 10;
+        userGuesses = [];
         computerChoice = letters[Math.floor(Math.random() * letters.length)];
             console.log(computerChoice);
 
@@ -26,6 +27,7 @@ document.onkeyup = function(event) {
     } else {
         losses = losses + 1;
         guesses = 10;
+        userGuesses = [];
         computerChoice = letters[Math.floor(Math.random() * letters.length)];
             console.log(computerChoice);
     }
@@ -33,7 +35,14 @@ document.onkeyup = function(event) {
 
     
             
-    var html = "<p>" + "You chose: " + userGuess + "</p>" + "<p>" + "Wins: " + wins + "</p>" + "<p>" + "Losses: " + losses + "</p>" + "<p>" + "Guesses: " + guesses + "</p>"; document.querySelector("#game").innerHTML = html;
+    var html =
+        "<p>" + "You chose: " + userGuess + "</p>" +
+        "<p>" + "Wins: " + wins + "</p>" +
+        "<p>" + "Losses: " + losses + "</p>" +
+        "<p>" + "Guesses: " + guesses + "</p>" +
+        "<p>" + "Your Guesses so Far: " + userGuesses + "</p>";
+    
+    document.querySelector("#game").innerHTML = html;
 }
 function clearFields() {
     userGuess.value = "";
